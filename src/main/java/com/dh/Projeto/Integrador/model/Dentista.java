@@ -9,11 +9,10 @@ public class Dentista {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
-
     private String nome, sobrenome, matricula;
 
-    public Dentista(Integer id) {
-        this.id = id;
+    public Dentista() {
+
     }
 
     public Integer getId() {

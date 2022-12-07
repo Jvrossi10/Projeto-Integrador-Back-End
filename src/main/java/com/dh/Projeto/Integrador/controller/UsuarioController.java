@@ -1,6 +1,6 @@
-package com.dh.Projeto.Integrador.Controller;
+package com.dh.Projeto.Integrador.controller;
 
-import com.dh.Projeto.Integrador.Service.UsuarioService;
+import com.dh.Projeto.Integrador.service.UsuarioService;
 import com.dh.Projeto.Integrador.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
