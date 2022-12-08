@@ -1,4 +1,4 @@
-package com.dh.Projeto.Integrador.repository;
+package com.dh.Projeto.Integrador.Repository;
 
 import com.dh.Projeto.Integrador.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,6 +1,6 @@
-package com.dh.Projeto.Integrador.service;
+package com.dh.Projeto.Integrador.Service;
 
-import com.dh.Projeto.Integrador.repository.UsuarioRepository;
+import com.dh.Projeto.Integrador.Repository.UsuarioRepository;
 import com.dh.Projeto.Integrador.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

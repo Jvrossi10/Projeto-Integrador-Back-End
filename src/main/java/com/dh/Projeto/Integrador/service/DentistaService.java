@@ -1,7 +1,7 @@
-package com.dh.Projeto.Integrador.service;
+package com.dh.Projeto.Integrador.Service;
 
 import com.dh.Projeto.Integrador.model.Dentista;
-import com.dh.Projeto.Integrador.repository.DentistaRepository;
+import com.dh.Projeto.Integrador.Repository.DentistaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
