@@ -1,14 +1,15 @@
-package com.dh.Projeto.Integrador.Controller;
+package com.dh.Projeto.Integrador.controller;
 
 import com.dh.Projeto.Integrador.exceptions.BadRequestException;
 import com.dh.Projeto.Integrador.exceptions.ResourceNotFoundException;
 import com.dh.Projeto.Integrador.model.Dentista;
-import com.dh.Projeto.Integrador.Service.DentistaService;
+import com.dh.Projeto.Integrador.service.DentistaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/dentistas")
@@ -30,6 +31,33 @@ public class DentistaController {
             return dentistaService.buscarTodos();
         }catch (Exception e){
             throw new ResourceNotFoundException("Nenhum dentista encontrado.");
+        }
+    }
+
+    @DeleteMapping
+    public void deletar(@RequestBody Dentista dentista) throws ResourceNotFoundException {
+        try {
+            dentistaService.deletar(dentista.getId());
+        } catch (Exception e) {
+            throw new ResourceNotFoundException("Dentista não encontrado.");
+        }
+    }
+
+    @PatchMapping
+    public Dentista atualizar(@RequestBody Dentista dentista) throws ResourceNotFoundException {
+        try {
+            return dentistaService.atualizar(dentista);
+        } catch (Exception e) {
+            throw new ResourceNotFoundException("Dentista não encontrado.");
+        }
+    }
+
+    @GetMapping("/buscarporid/{id}")
+    public Optional<Dentista> buscarPorId(Integer id) throws ResourceNotFoundException {
+        try {
+            return dentistaService.buscarPorId(id);
+        } catch (Exception e) {
+            throw new ResourceNotFoundException("Não foi possível encontrar o dentista pelo Id informado.");
         }
     }
 

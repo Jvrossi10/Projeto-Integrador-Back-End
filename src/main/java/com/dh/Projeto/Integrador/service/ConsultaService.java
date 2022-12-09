@@ -46,18 +46,21 @@ public class ConsultaService {
         return consultaRepository.findAll();
     }
 
-    public void deletar(Integer id) {
+    public void deletar(Integer id) throws ResourceNotFoundException {
+
+        consultaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Não foi possível excluir a consulta de Id " +id));
         consultaRepository.deleteById(id);
     }
 
-    public void atualizar(Integer id, Dentista dentista, Usuario usuario, LocalDateTime dataRegistro, LocalDateTime dataConsulta) {
-        Consulta consulta = null;
-        consultaRepository.findById(id);
-        consulta.setDentista(dentista);
-        consulta.setUsuario(usuario);
-        consulta.setDataRegistro(dataRegistro);
-        consulta.setDataConsulta(dataConsulta);
-        consultaRepository.save(consulta);
+    public Consulta atualizar(Consulta consulta) throws ResourceNotFoundException{
+        if(consultaRepository.findById(consulta.getId()).isEmpty()) {
+            throw new ResourceNotFoundException("Não foi possível encontrar a consulta informada.");
+        }
+        return consultaRepository.save(consulta);
+    }
 
+    public Optional<Consulta> buscarPorId(Integer id) throws ResourceNotFoundException {
+        consultaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Não foi possível encontrar a consulta pelo Id informado."));
+        return consultaRepository.findById(id);
     }
 }
