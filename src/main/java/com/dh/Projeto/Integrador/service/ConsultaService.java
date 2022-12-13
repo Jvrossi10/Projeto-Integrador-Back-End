@@ -1,6 +1,7 @@
 package com.dh.Projeto.Integrador.service;
 
 import com.dh.Projeto.Integrador.exceptions.ResourceNotFoundException;
+import com.dh.Projeto.Integrador.logger.Logger;
 import com.dh.Projeto.Integrador.model.Consulta;
 import com.dh.Projeto.Integrador.model.Dentista;
 import com.dh.Projeto.Integrador.model.Usuario;
@@ -19,6 +20,9 @@ public class ConsultaService {
     private final ConsultaRepository consultaRepository;
 
     @Autowired
+    Logger logger;
+
+    @Autowired
     DentistaRepository dentistaRepository;
 
     @Autowired
@@ -30,6 +34,7 @@ public class ConsultaService {
     }
 
     public Consulta salvar(Consulta consulta) throws ResourceNotFoundException {
+        logger.info("Salvando nova consulta.");
         Dentista dentista = consulta.getDentista();
         Optional<Dentista> idDentista = dentistaRepository.findById(dentista.getId_dentista());
         Usuario usuario = consulta.getUsuario();
@@ -42,16 +47,18 @@ public class ConsultaService {
     }
 
     public List<Consulta> listarTodas() {
+        logger.info("Mostrando todas as consultas.");
         return consultaRepository.findAll();
     }
 
     public void deletar(Integer id) throws ResourceNotFoundException {
-
+        logger.info("Deletando consulta.");
         consultaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Não foi possível excluir a consulta de Id " +id));
         consultaRepository.deleteById(id);
     }
 
     public Consulta atualizar(Consulta consulta) throws ResourceNotFoundException{
+        logger.info("Atualizando consulta.");
         if(consultaRepository.findById(consulta.getId_consulta()).isEmpty()) {
             throw new ResourceNotFoundException("Não foi possível encontrar a consulta informada.");
         }
@@ -59,6 +66,7 @@ public class ConsultaService {
     }
 
     public Optional<Consulta> buscarPorId(Integer id) throws ResourceNotFoundException {
+        logger.info("Buscando consulta pelo id: " +id);
         consultaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Não foi possível encontrar a consulta pelo Id informado."));
         return consultaRepository.findById(id);
     }
