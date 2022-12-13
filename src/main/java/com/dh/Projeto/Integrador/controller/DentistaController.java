@@ -37,7 +37,7 @@ public class DentistaController {
     @DeleteMapping
     public void deletar(@RequestBody Dentista dentista) throws ResourceNotFoundException {
         try {
-            dentistaService.deletar(dentista.getId());
+            dentistaService.deletar(dentista.getId_dentista());
         } catch (Exception e) {
             throw new ResourceNotFoundException("Dentista não encontrado.");
         }

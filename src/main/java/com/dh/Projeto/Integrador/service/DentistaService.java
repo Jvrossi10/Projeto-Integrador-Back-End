@@ -31,7 +31,7 @@ public class DentistaService {
     }
 
     public Dentista atualizar(Dentista dentista) throws ResourceNotFoundException {
-        if(dentistaRepository.findById(dentista.getId()).isEmpty()) {
+        if(dentistaRepository.findById(dentista.getId_dentista()).isEmpty()) {
             throw new ResourceNotFoundException("Não foi possível encontrar o dentista informado.");
         }
         return dentistaRepository.save(dentista);

@@ -8,19 +8,19 @@ public class Dentista {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id;
+    private Integer id_dentista;
     private String nome, sobrenome, matricula;
 
     public Dentista() {
 
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getId_dentista() {
+        return id_dentista;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId_dentista(Integer id_dentista) {
+        this.id_dentista = id_dentista;
     }
 
     public String getNome() {
@@ -50,7 +50,7 @@ public class Dentista {
     @Override
     public String toString() {
         return "Dentista{" +
-                "id=" + id +
+                "id=" + id_dentista +
                 ", nome='" + nome + '\'' +
                 ", sobrenome='" + sobrenome + '\'' +
                 ", matricula='" + matricula + '\'' +

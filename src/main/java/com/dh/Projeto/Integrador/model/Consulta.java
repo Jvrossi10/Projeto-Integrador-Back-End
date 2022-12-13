@@ -9,8 +9,11 @@ import java.time.LocalDateTime;
 public class Consulta {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id;
+    private Integer id_consulta;
+
+    @ManyToOne
     private Dentista dentista;
+    @ManyToOne
     private Usuario usuario;
     private LocalDateTime dataRegistro;
     private LocalDateTime dataConsulta;
@@ -18,12 +21,12 @@ public class Consulta {
     public Consulta() {
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getId_consulta() {
+        return id_consulta;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId_consulta(Integer id_consulta) {
+        this.id_consulta = id_consulta;
     }
 
     public Dentista getDentista() {
@@ -61,7 +64,7 @@ public class Consulta {
     @Override
     public String toString() {
         return "Consulta{" +
-                "id=" + id +
+                "id=" + id_consulta +
                 ", dentista=" + dentista +
                 ", usuario=" + usuario +
                 ", dataRegistro=" + dataRegistro +

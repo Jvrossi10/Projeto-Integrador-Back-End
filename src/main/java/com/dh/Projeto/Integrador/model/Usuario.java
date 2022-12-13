@@ -8,17 +8,17 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id;
+    private Integer id_usuario;
     private String nome, email, senha, nivelAcesso;
 
     public Usuario() {}
 
-    public Integer getId() {
-        return id;
+    public Integer getId_usuario() {
+        return id_usuario;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId_usuario(Integer id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
     public String getNome() {
