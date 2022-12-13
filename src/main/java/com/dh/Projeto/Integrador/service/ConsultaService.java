@@ -5,7 +5,7 @@ import com.dh.Projeto.Integrador.model.Consulta;
 import com.dh.Projeto.Integrador.model.Dentista;
 import com.dh.Projeto.Integrador.model.Usuario;
 import com.dh.Projeto.Integrador.repository.ConsultaRepository;
-import com.dh.Projeto.Integrador.Repository.DentistaRepository;
+import com.dh.Projeto.Integrador.repository.DentistaRepository;
 import com.dh.Projeto.Integrador.Repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

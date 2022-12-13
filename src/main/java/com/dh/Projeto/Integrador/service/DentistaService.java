@@ -2,7 +2,7 @@ package com.dh.Projeto.Integrador.service;
 
 import com.dh.Projeto.Integrador.exceptions.ResourceNotFoundException;
 import com.dh.Projeto.Integrador.model.Dentista;
-import com.dh.Projeto.Integrador.Repository.DentistaRepository;
+import com.dh.Projeto.Integrador.repository.DentistaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

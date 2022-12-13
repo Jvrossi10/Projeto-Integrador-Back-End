@@ -1,4 +1,4 @@
-package com.dh.Projeto.Integrador.Repository;
+package com.dh.Projeto.Integrador.repository;
 
 import com.dh.Projeto.Integrador.model.Dentista;
 import org.springframework.data.jpa.repository.JpaRepository;
