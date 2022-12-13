@@ -2,7 +2,7 @@ package com.dh.Projeto.Integrador.service;
 
 import com.dh.Projeto.Integrador.exceptions.ResourceNotFoundException;
 import com.dh.Projeto.Integrador.model.Dentista;
-import com.dh.Projeto.Integrador.Repository.DentistaRepository;
+import com.dh.Projeto.Integrador.repository.DentistaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +31,7 @@ public class DentistaService {
     }
 
     public Dentista atualizar(Dentista dentista) throws ResourceNotFoundException {
-        if(dentistaRepository.findById(dentista.getId()).isEmpty()) {
+        if(dentistaRepository.findById(dentista.getId_dentista()).isEmpty()) {
             throw new ResourceNotFoundException("Não foi possível encontrar o dentista informado.");
         }
         return dentistaRepository.save(dentista);
