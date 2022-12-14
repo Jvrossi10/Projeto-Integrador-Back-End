@@ -49,8 +49,8 @@ public class ConsultaController {
         }
     }
 
-    @DeleteMapping
-    public void deletar(Integer id) throws ResourceNotFoundException {
+    @DeleteMapping("/delete/{id}")
+    public void deletar(@PathVariable Integer id) throws ResourceNotFoundException {
         try {
             consultaService.deletar(id);
         } catch (Exception e) {
@@ -68,7 +68,7 @@ public class ConsultaController {
     }
 
     @GetMapping("/buscarporid/{id}")
-    public Optional<Consulta> buscarPorId(Integer id) throws ResourceNotFoundException {
+    public Optional<Consulta> buscarPorId(@PathVariable Integer id) throws ResourceNotFoundException {
         try {
             return consultaService.buscarPorId(id);
         } catch (Exception e) {
@@ -81,3 +81,7 @@ public class ConsultaController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
     }
 }
+
+
+
+

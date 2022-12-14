@@ -1,24 +1,29 @@
 package com.dh.Projeto.Integrador.model;
 
-import jakarta.persistence.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name="Usuarios")
-public class Usuario {
+public class Usuario implements UserDetails{
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id_usuario;
+    private Integer id;
     private String nome, email, senha, nivelAcesso;
+
 
     public Usuario() {}
 
-    public Integer getId_usuario() {
-        return id_usuario;
+    public Integer getId() {
+        return id;
     }
 
-    public void setId_usuario(Integer id_usuario) {
-        this.id_usuario = id_usuario;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -51,5 +56,41 @@ public class Usuario {
 
     public void setNivelAcesso(String nivelAcesso) {
         this.nivelAcesso = nivelAcesso;
+    }
+
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public String getPassword() {
+        return this.senha;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }

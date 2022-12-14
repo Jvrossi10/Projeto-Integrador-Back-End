@@ -37,8 +37,8 @@ public class UsuarioController {
         }
     }
 
-    @DeleteMapping
-    public void deletar(Integer id) throws ResourceNotFoundException {
+    @DeleteMapping("/delete/{id}")
+    public void deletar(@PathVariable Integer id) throws ResourceNotFoundException {
         try {
             usuarioService.deletar(id);
         } catch (Exception e) {
@@ -56,7 +56,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/buscarporid/{id}")
-    public Optional<Usuario> buscarPorId(Integer id) throws ResourceNotFoundException {
+    public Optional<Usuario> buscarPorId(@PathVariable Integer id) throws ResourceNotFoundException {
         try {
             return usuarioService.buscarPorId(id);
         } catch (Exception e) {

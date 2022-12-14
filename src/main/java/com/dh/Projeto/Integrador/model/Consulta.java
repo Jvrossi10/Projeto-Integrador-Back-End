@@ -1,6 +1,6 @@
 package com.dh.Projeto.Integrador.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.time.LocalDateTime;
 
@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 public class Consulta {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id_consulta;
+    private Integer id;
 
     @ManyToOne
     private Dentista dentista;
@@ -21,12 +21,12 @@ public class Consulta {
     public Consulta() {
     }
 
-    public Integer getId_consulta() {
-        return id_consulta;
+    public Integer getId() {
+        return id;
     }
 
-    public void setId_consulta(Integer id_consulta) {
-        this.id_consulta = id_consulta;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Dentista getDentista() {
@@ -64,7 +64,7 @@ public class Consulta {
     @Override
     public String toString() {
         return "Consulta{" +
-                "id=" + id_consulta +
+                "id=" + id +
                 ", dentista=" + dentista +
                 ", usuario=" + usuario +
                 ", dataRegistro=" + dataRegistro +

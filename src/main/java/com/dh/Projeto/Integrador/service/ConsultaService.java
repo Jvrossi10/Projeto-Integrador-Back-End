@@ -36,9 +36,9 @@ public class ConsultaService {
     public Consulta salvar(Consulta consulta) throws ResourceNotFoundException {
         logger.info("Salvando nova consulta.");
         Dentista dentista = consulta.getDentista();
-        Optional<Dentista> idDentista = dentistaRepository.findById(dentista.getId_dentista());
+        Optional<Dentista> idDentista = dentistaRepository.findById(dentista.getId());
         Usuario usuario = consulta.getUsuario();
-        Optional<Usuario> idUsuario = usuarioRepository.findById(usuario.getId_usuario());
+        Optional<Usuario> idUsuario = usuarioRepository.findById(usuario.getId());
 
         if(idDentista.isEmpty() || idUsuario.isEmpty()) {
             throw new ResourceNotFoundException("Usuário e/ou dentista não encontrado(s).");
@@ -59,7 +59,7 @@ public class ConsultaService {
 
     public Consulta atualizar(Consulta consulta) throws ResourceNotFoundException{
         logger.info("Atualizando consulta.");
-        if(consultaRepository.findById(consulta.getId_consulta()).isEmpty()) {
+        if(consultaRepository.findById(consulta.getId()).isEmpty()) {
             throw new ResourceNotFoundException("Não foi possível encontrar a consulta informada.");
         }
         return consultaRepository.save(consulta);

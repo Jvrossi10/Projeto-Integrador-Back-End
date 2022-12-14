@@ -34,10 +34,10 @@ public class DentistaController {
         }
     }
 
-    @DeleteMapping
-    public void deletar(@RequestBody Dentista dentista) throws ResourceNotFoundException {
+    @DeleteMapping("/delete/{id}")
+    public void deletar(@PathVariable Dentista dentista) throws ResourceNotFoundException {
         try {
-            dentistaService.deletar(dentista.getId_dentista());
+            dentistaService.deletar(dentista.getId());
         } catch (Exception e) {
             throw new ResourceNotFoundException("Dentista não encontrado.");
         }
@@ -53,7 +53,7 @@ public class DentistaController {
     }
 
     @GetMapping("/buscarporid/{id}")
-    public Optional<Dentista> buscarPorId(Integer id) throws ResourceNotFoundException {
+    public Optional<Dentista> buscarPorId(@PathVariable Integer id) throws ResourceNotFoundException {
         try {
             return dentistaService.buscarPorId(id);
         } catch (Exception e) {
